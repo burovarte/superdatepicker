@@ -5,7 +5,7 @@ enum ButtonEnum {}
 
 interface ButtonProps {
 	style: string | number;
-	icon: string;
+	icon?: string;
 	title: string;
 	color: string;
 	size: string;
@@ -34,10 +34,14 @@ export const Button: FunctionComponent<ButtonProps> = ({
 }) => {
 	return (
 		<Container color={color}>
-			<img
-				style={{ width: "16px", height: "16px", marginRight: "5px" }}
-				src={icon}
-			></img>
+			{icon !== "" ? (
+				<img
+					style={{ width: "16px", height: "16px", marginRight: "5px" }}
+					src={icon}
+				></img>
+			) : (
+				""
+			)}
 			{title}
 		</Container>
 	);
