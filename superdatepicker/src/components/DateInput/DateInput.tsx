@@ -13,10 +13,10 @@ const Container = styled.button`
 	margin: 0 5px;
 `;
 
-export const DateInput: FunctionComponent<DateInput> = (date) => {
+export const DateInput: FunctionComponent<DateInput> = (props) => {
 	return (
 		<>
-			<Container>kdoskfksp</Container>
+			<Container>{props.date}</Container>
 		</>
 	);
 };

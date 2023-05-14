@@ -15,9 +15,12 @@ function App() {
 	const [startDate, setStartDate] = React.useState<Dayjs | null>(
 		dayjs("2022-04-17")
 	);
+	const [endDate, setEndDate] = React.useState<Dayjs | null>(
+		dayjs("2022-04-17")
+	);
 	return (
 		<>
-			{console.log(startDate)}
+			{console.log(startDate?.format("DD/MM/YYYY"))}
 			<Tooltip
 				content={
 					<LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -29,21 +32,21 @@ function App() {
 				}
 				direction="bottom"
 			>
-				<DateInput date={startDate} />
+				<DateInput date={startDate?.format("DD/MM/YYYY")} />
 			</Tooltip>
 			<ArrowForwardIcon />
 			<Tooltip
 				content={
 					<LocalizationProvider dateAdapter={AdapterDayjs}>
 						<DateCalendar
-							value={startDate}
-							onChange={(newValue) => setStartDate(newValue)}
+							value={endDate}
+							onChange={(newValue) => setEndDate(newValue)}
 						/>
 					</LocalizationProvider>
 				}
 				direction="bottom"
 			>
-				<DateInput date={startDate} />
+				<DateInput date={endDate?.format("DD/MM/YYYY")} />
 			</Tooltip>
 			<Button
 				style={""}
