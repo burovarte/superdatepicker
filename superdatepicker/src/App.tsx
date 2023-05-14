@@ -23,7 +23,7 @@ function App() {
 					<LocalizationProvider dateAdapter={AdapterDayjs}>
 						<DateCalendar
 							value={startDate}
-							onChange={(newValue) => console.log(newValue)}
+							onChange={(newValue) => setStartDate(newValue)}
 						/>
 					</LocalizationProvider>
 				}
@@ -37,7 +37,7 @@ function App() {
 					<LocalizationProvider dateAdapter={AdapterDayjs}>
 						<DateCalendar
 							value={startDate}
-							onChange={(newValue) => console.log(newValue)}
+							onChange={(newValue) => setStartDate(newValue)}
 						/>
 					</LocalizationProvider>
 				}
