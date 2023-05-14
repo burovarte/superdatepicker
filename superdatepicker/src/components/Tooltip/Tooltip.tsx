@@ -25,7 +25,27 @@ const TooltipTip = styled.div`
 	height: auto;
 `;
 
-const Tooltip = (props: any) => {
+const Tooltip = (props: {
+	children:
+		| string
+		| number
+		| boolean
+		| React.ReactElement<any, string | React.JSXElementConstructor<any>>
+		| React.ReactFragment
+		| React.ReactPortal
+		| null
+		| undefined;
+	direction: any;
+	content:
+		| string
+		| number
+		| boolean
+		| React.ReactElement<any, string | React.JSXElementConstructor<any>>
+		| React.ReactFragment
+		| React.ReactPortal
+		| null
+		| undefined;
+}) => {
 	let timeout: any;
 	const [active, setActive] = useState(false);
 

@@ -1,42 +1,57 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import refresh from "./assets/refreshing-svgrepo-com.svg";
 import "./App.css";
 import { Button } from "./components/Button/Button";
 import Tooltip from "./components/Tooltip/Tooltip";
+import { DateInput } from "./components/DateInput/DateInput";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { DateCalendar } from "@mui/x-date-pickers";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs, { Dayjs } from "dayjs";
 
 function App() {
 	const [press, setPress] = useState(false);
+	const [startDate, setStartDate] = React.useState<Dayjs | null>(
+		dayjs("2022-04-17")
+	);
 	return (
 		<>
+			{console.log(startDate)}
 			<Tooltip
 				content={
-					<>
-						<Button
-							style={""}
-							icon={refresh}
-							title={"Refresh"}
-							color={"#006BB4"}
-							size={""}
+					<LocalizationProvider dateAdapter={AdapterDayjs}>
+						<DateCalendar
+							value={startDate}
+							onChange={(newValue) => console.log(newValue)}
 						/>
-						<Button
-							style={""}
-							icon={refresh}
-							title={"Refresh"}
-							color={"#006BB4"}
-							size={""}
-						/>
-					</>
+					</LocalizationProvider>
 				}
 				direction="bottom"
 			>
-				<Button
-					style={""}
-					icon={refresh}
-					title={"Refresh"}
-					color={"#006BB4"}
-					size={""}
-				/>
+				<DateInput date={startDate} />
 			</Tooltip>
+			<ArrowForwardIcon />
+			<Tooltip
+				content={
+					<LocalizationProvider dateAdapter={AdapterDayjs}>
+						<DateCalendar
+							value={startDate}
+							onChange={(newValue) => console.log(newValue)}
+						/>
+					</LocalizationProvider>
+				}
+				direction="bottom"
+			>
+				<DateInput date={startDate} />
+			</Tooltip>
+			<Button
+				style={""}
+				icon={refresh}
+				title={"Refresh"}
+				color={"#006BB4"}
+				size={""}
+			/>
 		</>
 	);
 }

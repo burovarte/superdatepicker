@@ -33,16 +33,18 @@ export const Button: FunctionComponent<ButtonProps> = ({
 	buttonType,
 }) => {
 	return (
-		<Container color={color}>
-			{icon !== "" ? (
-				<img
-					style={{ width: "16px", height: "16px", marginRight: "5px" }}
-					src={icon}
-				></img>
-			) : (
-				""
-			)}
-			{title}
-		</Container>
+		<>
+			<Container color={color}>
+				{icon !== "" ? (
+					<img
+						style={{ width: "16px", height: "16px", marginRight: "5px" }}
+						src={icon}
+					></img>
+				) : (
+					""
+				)}
+				{title}
+			</Container>
+		</>
 	);
 };
